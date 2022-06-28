@@ -5,22 +5,23 @@ import { HStack, Spacer, Button, Box, Flex, Heading, Stack, Text } from "@chakra
 export default function Nav () {
   return (
     <Flex
-        w='100%' 
-        h='70px' 
-        bgGradient='linear(to-r, purple.700, purple.500)'
-        color='white'
-        align='center'
-        paddingLeft='20px'
-        paddingRight='20px'
-    >
-		
-		<Box>
-            <Heading size={'2xl'}>meme generator</Heading>
-        </Box>
+      w='100%' 
+      h='70px' 
+      bgGradient='linear(to-r, purple.700, purple.500)'
+      color='white'
+      align='center'
+      paddingLeft='20px'
+      paddingRight='20px'
+      fontFamily='monospace'
+
+      >
+        <Flex
+          fontSize='3xl'
+        >
+            meme generator
+        </Flex>
         <Spacer />
-        <Box>
-            <Text>React Course - Project 3</Text>
-        </Box>
+        <Flex fontSize='large'>React Course - Project 3</Flex>
     </Flex>
   )
 }

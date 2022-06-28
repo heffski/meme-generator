@@ -2,7 +2,7 @@ import './App.css';
 import Nav from './components/Nav.js';
 import Form from './components/Form.js';
 
-function App() {
+export default function App() {
   return (
     <div className="App">
       <Nav />
@@ -10,7 +10,5 @@ function App() {
     </div>
   );
 }
-
-export default App;
 
 // return <ChakraProvider theme={Theme}>{props.children}</ChakraProvider>
