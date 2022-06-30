@@ -1,21 +1,25 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 import {Box, Flex, Input, Button, Image, Text, Heading} from "@chakra-ui/react"
-import memesData from '../memesData.js'
 
 
 export default function Form () {
-  const [meme, setMeme] = React.useState({
+  const [meme, setMeme] = useState({
     topText: "",
     bottomText: "",
     randomImage: "https://i.imgflip.com/30b1gx.jpg"
   })
 
-  const [allMemeImages, setAllMemeImages] = React.useState(memesData)
+  const [allMemeImages, setAllMemeImages] = React.useState([])
+
+  useEffect(() => {
+    fetch("https://api.imgflip.com/get_memes")
+      .then(res => res.json())
+      .then(data => setAllMemeImages(data.data.memes))
+  }, [meme])
 
   function renderMeme() {
-    const memesArr = allMemeImages.data.memes
-    const randomNumber = Math.floor(Math.random() * memesArr.length)
-    const url = memesArr[randomNumber].url 
+    const randomNumber = Math.floor(Math.random() * allMemeImages.length)
+    const url = allMemeImages[randomNumber].url 
     setMeme(prevMeme => ({
       ...prevMeme,
       randomImage: url
